@@ -1,0 +1,66 @@
+## Prerequisite CLI tools
+
+You will need in this tutorial:
+
+The following CLI tools are required for running the exercises in this tutorial. Please have them installed and configured before you get started with any of the tutorial chapters.
+
+  
+| **Tool** | **macOS** | **Fedora** | **windows** |
+| --- | --- | --- | --- |
+| `Git` | [Download](https://git-scm.com/download/mac) | [Download](https://git-scm.com/download/linux) | [Download](https://git-scm.com/download/win) |
+| `Docker` | [Docker for Mac](https://docs.docker.com/docker-for-mac/install) | `dnf install docker` | [Docker for Windows](https://docs.docker.com/docker-for-windows/install) |
+| `kubectl v1.18.6` | [Download](https://storage.googleapis.com/kubernetes-release/release/v1.18.6/bin/darwin/amd64/kubectl) | [Download](https://storage.googleapis.com/kubernetes-release/release/v1.18.6/bin/linux/amd64/kubectl) | [Download](https://storage.googleapis.com/kubernetes-release/release/v1.18.6/bin/windows/amd64/kubectl.exe) |
+| [stern](https://github.com/wercker/stern) | `brew install stern` | [Download](https://github.com/wercker/stern/releases/download/1.6.0/stern_linux_amd64) | [Download](https://github.com/wercker/stern/releases/download/1.11.0/stern_windows_amd64.exe) |
+| `Apache Maven 3.6.3` | [Download](https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz) | [Download](https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip) | [Download](https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz) |
+| `istioctl` | [Download](https://github.com/istio/istio/releases/download/1.6.13/istio-1.6.13-osx.tar.gz) | [Download](https://github.com/istio/istio/releases/download/1.6.13/istio-1.6.13-win.zip) | [Download](https://github.com/istio/istio/releases/download/1.6.13/istio-1.6.13-linux.tar.gz) |
+
+The following CLI tools are optional for running the exercises in this tutorial. Although they are used in the tutorial, you could use others without any problem.
+
+  
+| **Tool** | **macOS** | **Fedora** | **windows** |
+| --- | --- | --- | --- |
+| [yq v2.4.1](https://github.com/mikefarah/yq) | [Download](https://github.com/mikefarah/yq/releases/download/2.4.1/yq_darwin_amd64) | [Download](https://github.com/mikefarah/yq/releases/download/2.4.1/yq_linux_amd64) | [Download](https://github.com/mikefarah/yq/releases/download/2.4.1/yq_windows_amd64.exe) |
+| [jq v1.6.0](https://github.com/stedolan/jq) | [Download](https://github.com/stedolan/jq/releases/download/jq-1.6/jq-osx-amd64) | [Download](https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64) | [Download](https://github.com/stedolan/jq/releases/download/jq-1.6/jq-win64.exe) |
+| [httpie](https://httpie.org/) | `brew install httpie` | `dnf install httpie` | [https://httpie.org/doc#windows-etc](https://httpie.org/doc#windows-etc) |
+| watch | `brew install watch` | `dnf install procps-ng` |     |
+| kubectx and kubens | `brew install kubectx` | [https://github.com/ahmetb/kubectx](https://github.com/ahmetb/kubectx) |     |
+| [hey](https://github.com/rakyll/hey) | `brew install hey` | [Download](https://storage.googleapis.com/jblabs/dist/hey_linux_v0.1.2) | [Download](https://storage.googleapis.com/jblabs/dist/hey_win_v0.1.2.exe) |
+
+## Download Tutorial Sources
+
+Before we start setting up the environment, let’s clone the tutorial sources and set the `TUTORIAL_HOME` environment variable to point to the root directory of the tutorial:
+
+Before we start setting up the environment, let’s clone the tutorial sources and set the `TUTORIAL_HOME` environment variable to point to the root directory of the tutorial:
+
+```
+git clone https://github.com/redhat-developer-demos/istio-tutorial istio-tutorial
+```
+
+```
+export TUTORIAL_HOME="$(pwd)/istio-tutorial"
+export USERNAME="your_username"
+```
+
+```
+cd $TUTORIAL_HOME
+```
+
+## Perform the following steps using the `oc` client
+
+First, we'll need to create a work directory:
+
+```
+oc new-project istio-devnation
+```
+
+Next, we'll need to create the namespace in which we will perform our work:
+
+```
+oc new-project `username`-tutorial
+```
+
+NOTE: the "`username`-tutorial" command above implies that you will use your username and the prefix for the new namespace. An example would be
+
+```
+oc new-project preston-tutorial
+```
